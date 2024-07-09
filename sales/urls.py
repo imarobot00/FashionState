@@ -11,7 +11,8 @@ urlpatterns=[
     path('submit_login/', views.submit_login, name='submit_login'),
     path('signup/',views.signup,name='signup'),
     path('submit_signup/', views.submit_signup, name='submit_signup'),
-    path('shop/',views.shop,name="shop")
+    path('shop/',views.shop,name="shop"),
+    path('shop/<int:id>/',views.product_detail, name='product_detail')
 ]
 
 # Serve media files during development

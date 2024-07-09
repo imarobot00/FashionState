@@ -45,7 +45,7 @@
                     <h5>{{ item.1 }}</h5>
                     <h4>Rs{{ item.4 }}</h4>
                 </div>
-                <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+                <a href="{% url 'product_detail' item.0 %}"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
             </div>
             {% endfor %}                         
         </div>

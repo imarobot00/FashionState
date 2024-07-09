@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FashionState - Home</title>
-    <link rel="stylesheet" href="Fonts/fontsawesome/css/font-awesome.min.css">
+    <title>FashionState - Product Details</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'sales/Homepage/Fonts/fontsawesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'sales/Homepage/styles1.css' %}">
 </head>
+<body>
     <section id="header">
-        <a href="#"><img src="{% static 'sales\Homepage\logo.png' %}" class="logo" alt="logo"></a>
+        <a href="#"><img src="{% static 'sales/Homepage/logo.png' %}" class="logo" alt="logo"></a>
         <div>
             <ul id="navbar">
                 <li><a href="#">Home</a></li>
                 <li><a href="#" class="active">Shop</a></li>
                 <li><a href="#">Forums</a></li>
-                
                 <li><a href="#">Contacts</a></li>
                 <li><a href="#">Become a Retailer</a></li>
                 <li id="lg-bag"><a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li>
@@ -25,49 +26,45 @@
             <div id="mobile">
                 <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="padding-left: 250px;"></i></a>
                 <i id="bar" class="fa fa-outdent fa-2x" aria-hidden="true" style="padding-left: 50px;"></i>
-                
             </div>
         </div>
     </section>
     
     <section id="prodetails" class="section-p1">
         <div class="single-pro-image">
-            <img src="{% static 'sales\Homepage\product\cartoon-Tshirt.jpg' %}" width="100%" id="MainImg" alt="">
-
+            <img src="{{ MEDIA_URL }}{{ product.image }}" width="100%" id="MainImg" alt="{{ product.name }}">
             <div class="small-img-group">
                 <div class="small-img-col">
-                    <img src="{% static 'sales\Homepage\product\cartoon-Tshirt.jpg' %}" width="100%" class="small-img" alt="">
+                    <img src="{{ MEDIA_URL }}{{ product.image }}" width="100%" class="small-img" alt="{{ product.name }}">
+                </div>
+                <!-- Add other product images if available -->
+                <div class="small-img-col">
+                    <img src="{{ MEDIA_URL }}{{ product.image }}" width="100%" class="small-img" alt="{{ product.name }}">
                 </div>
                 <div class="small-img-col">
-                    <img src="{% static 'sales\Homepage\product\cartoon-Tshirt.jpg' %}" width="100%" class="small-img" alt="">
+                    <img src="{{ MEDIA_URL }}{{ product.image }}" width="100%" class="small-img" alt="{{ product.name }}">
                 </div>
                 <div class="small-img-col">
-                    <img src="{% static 'sales\Homepage\product\cartoon-Tshirt.jpg' %}" width="100%" class="small-img" alt="">
-                </div>
-                <div class="small-img-col">
-                    <img src="{% static 'sales\Homepage\product\cartoon-Tshirt.jpg' %}" width="100%" class="small-img" alt="">
+                    <img src="{{ MEDIA_URL }}{{ product.image }}" width="100%" class="small-img" alt="{{ product.name }}">
                 </div>
             </div>
         </div>
         <div class="single-pro-details">
-            <h6>Home / T-Shirt</h6>
-            <h4>Cartoon T-Shirt</h4>
-            <h2>Rs. 400</h2>
+            <h6>Home / people</h6>
+            <h4>{{ product.name }}</h4>
+            <h2>Rs. {{ product.price }}</h2>
             <select>
                 <option>Select Size</option>
-                <option>Select Size</option>
-                <option>Select Size</option>
-                <option>Select Size</option>
-                <option>Select Size</option>
-                <option>Select Size</option>
-                <option>Select Size</option>
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+                <option>XL</option>
+                <!-- Add other sizes if available -->
             </select>
             <input type="number" value="1">
             <button class="normal">Add to Cart</button>
             <h4>Product Details</h4>
-            <span>
-                The TechGuru Smartwatch X200 is a state-of-the-art wearable device designed for tech enthusiasts and fitness aficionados. It combines cutting-edge technology with sleek design, offering a range of features that make it an essential accessory for modern living.
-            </span>
+            <span>{{ product.description }}</span>
         </div>
     </section>
 

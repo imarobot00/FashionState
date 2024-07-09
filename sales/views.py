@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.db import connection,transaction
 from django.core.paginator import Paginator
+from django.http import Http404
 # Create your views here.
 def index(request, name):
     return HttpResponse(f"This is a Fashion Retail Website.{name}")
@@ -118,5 +119,24 @@ def shop(request):
     }
     return render(request, 'Home/products.html', context)
 
-def sproducts(request):
-    return render(request, 'Home/sproducts.html')
+def product_detail(request, id):
+
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT * from items where item_id = %s",[id])
+        product = cursor.fetchone()
+    
+    if not product:
+        raise Http404("Product does not exist")
+    
+    product_dict = {
+        'id': product[0],
+        'name': product[1],
+        'price': product[4],
+        'description': product[8],
+        'image': product[5]
+    }
+
+    return render(request, 'Home/sproduct.html',{'product': product_dict})
+
+
+
