@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FashionState - Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'sales/Homepage/Fonts/fontsawesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sales/Homepage/styles1.css' %}">
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="{% static 'sales\Homepage\logo.png' %}" class="logo" alt="logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
+                <li><a href="#">Forums</a></li>
+                
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">Become a Retailer</a></li>
+                <li id="lg-bag"><a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a></li>
+                <a href="#" id="close"><i class="fa fa-times" aria-hidden="true"></i></a>
+            </ul>
+            <div id="mobile">
+                <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="padding-left: 250px;"></i></a>
+                <i id="bar" class="fa fa-outdent fa-2x" aria-hidden="true" style="padding-left: 50px;"></i>
+                
+            </div>
+        </div>
+    </section>
+    <section id="hero">
+        <h4>Trade-in-offer</h4>
+        <h2>Super Value Deals</h2>
+        <h1>On all Products</h1>
+        <p>Discounts upto 70%.</p>
+        <button>Shop Now</button>
+
+    </section>
+    <section id="feature" class="section-p1">
+        <div class="fe-box">
+            <img src="{% static 'sales/Homepage/retailer1.png' %}" alt="">
+            <h6>Sell Product</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'sales/Homepage/Buy.png' %}" alt="">
+            <h6>Buy Product</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'sales/Homepage/shipped.png' %}" alt="">
+            <h6>Shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'sales/Homepage/group.png' %}" alt="">
+            <h6>Forums</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'sales/Homepage/call.png' %}" alt="">
+            <h6>Contact Us</h6>
+        </div>
+
+
+    </section>
+
+
+    <section id="products" class="section-p1">
+        <h2>Featured Products</h2>
+        <p>Summer Collection New Modern Design</p>
+        <div class="pro-container">
+            {% for item in items|slice:":8" %}
+            <div class="pro">
+                <img src="{{ MEDIA_URL }}{{ item.5 }}" alt="{{ item.0 }}">
+                <div class="des">
+                    <span>{{ item.2 }}</span>
+                    <h5>{{ item.1 }}</h5>
+                    <h4>Rs{{ item.4 }}</h4>
+                </div>
+                <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- <section id="products" class="section-p1">
+        <h2>Featured Products</h2>
+        <p>Summer Collection New Modern Design</p>
+        <div class="pro-container">
+            <div class="pro">
+            <img src="{% static 'sales/Homepage/cartoon-Tshirt.jpg' %}" alt="">
+            <div class="des">
+                <span>adidas</span>
+                <h5>Cartoon T-shirt</h5>
+                <div class="star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <h4>$784</h4>
+            </div>
+            <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+            </div>
+            <div class="pro">
+                <img src="{% static 'sales/Homepage/cartoon-Tshirt.jpg' %}" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                    <h4>$784</h4>
+                </div>
+                <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+                </div>
+            
+                <div class="pro">
+                    <img src="{% static 'sales/Homepage/cartoon-Tshirt.jpg' %}" alt="">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Cartoon T-shirt</h5>
+                        <div class="star">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                        <h4>$784</h4>
+                    </div>
+                    <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+                    </div>
+
+                    <div class="pro">
+                        <img src="{% static 'sales/Homepage/cartoon-Tshirt.jpg' %}" alt="">
+                        <div class="des">
+                            <span>adidas</span>
+                            <h5>Cartoon T-shirt</h5>
+                            <div class="star">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            </div>
+                            <h4>$784</h4>
+                        </div>
+                        <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+                        </div>
+                        <div class="pro">
+                            <img src="{% static 'sales/Homepage/cartoon-Tshirt.jpg' %}" alt="">
+                            <div class="des">
+                                <span>adidas</span>
+                                <h5>Cartoon T-shirt</h5>
+                                <div class="star">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <h4>$784</h4>
+                            </div>
+                            <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+                            </div>
+                            <div class="pro">
+                                <img src="{% static 'sales/Homepage/cartoon-Tshirt.jpg' %}" alt="">
+                                <div class="des">
+                                    <span>adidas</span>
+                                    <h5>Cartoon T-shirt</h5>
+                                    <div class="star">
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <h4>$784</h4>
+                                </div>
+                                <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+                                </div>
+                                <div class="pro">
+                                    <img src="{% static 'sales/Homepage/cartoon-Tshirt.jpg' %}" alt="">
+                                    <div class="des">
+                                        <span>adidas</span>
+                                        <h5>Cartoon T-shirt</h5>
+                                        <div class="star">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        </div>
+                                        <h4>$784</h4>
+                                    </div>
+                                    <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+                                    </div>
+                                    <div class="pro">
+                                        <img src="{% static 'sales/Homepage/cartoon-Tshirt.jpg' %}" alt="">
+                                        <div class="des">
+                                            <span>adidas</span>
+                                            <h5>Cartoon T-shirt</h5>
+                                            <div class="star">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </div>
+                                            <h4>$784</h4>
+                                        </div>
+                                        <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+                                        </div>
+                                    
+        </div>
+    </section> -->
+
+    <section id="banner" class="section-m1">
+        <h4>Discounts!!!</h4>
+        <h2>Up to  <span>70% off</span>-All Clothes & Accessories</h2>
+        <button class="normal">Explore More</button>
+    </section>
+
+    <section id="products" class="section-p1">
+        <h2>New Products</h2>
+        <p>Our Recently Added Products</p>
+        <div class="pro-container">
+            {% for item in new_items|slice:":8" %}
+            <div class="pro">
+                <img src="{{ MEDIA_URL }}{{ item.5 }}" alt="{{ item.0 }}">
+                <div class="des">
+                    <span>{{ item.2 }}</span>
+                    <h5>{{ item.1 }}</h5>
+                    <h4>Rs{{ item.4 }}</h4>
+                </div>
+                <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- <section id="products" class="section-p1">
+        <h2>New Arrivals</h2>
+        <p>Check out our new Arrivals</p>
+        <div class="pro-container">
+            <div class="pro">
+            <img src="{% static 'sales/Homepage/cartoon-Tshirt.jpg' %}" alt="">
+            <div class="des">
+                <span>adidas</span>
+                <h5>Cartoon T-shirt</h5>
+                <div class="star">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <h4>$784</h4>
+            </div>
+            <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+            </div>
+            <div class="pro">
+                <img src="{% static 'sales/Homepage/cartoon-Tshirt.jpg' %}" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                    <h4>$784</h4>
+                </div>
+                <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+                </div>
+            
+                <div class="pro">
+                    <img src="{% static 'sales/Homepage/cartoon-Tshirt.jpg' %}" alt="">
+                    <div class="des">
+                        <span>adidas</span>
+                        <h5>Cartoon T-shirt</h5>
+                        <div class="star">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                        <h4>$784</h4>
+                    </div>
+                    <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+                    </div>
+
+                    <div class="pro">
+                        <img src="{% static 'sales/Homepage/cartoon-Tshirt.jpg' %}" alt="">
+                        <div class="des">
+                            <span>adidas</span>
+                            <h5>Cartoon T-shirt</h5>
+                            <div class="star">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            </div>
+                            <h4>$784</h4>
+                        </div>
+                        <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+                        </div>
+                        <div class="pro">
+                            <img src="{% static 'sales/Homepage/cartoon-Tshirt.jpg' %}" alt="">
+                            <div class="des">
+                                <span>adidas</span>
+                                <h5>Cartoon T-shirt</h5>
+                                <div class="star">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <h4>$784</h4>
+                            </div>
+                            <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+                            </div>
+                            <div class="pro">
+                                <img src="{% static 'sales/Homepage/cartoon-Tshirt.jpg' %}" alt="">
+                                <div class="des">
+                                    <span>adidas</span>
+                                    <h5>Cartoon T-shirt</h5>
+                                    <div class="star">
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <h4>$784</h4>
+                                </div>
+                                <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+                                </div>
+                                <div class="pro">
+                                    <img src="{% static 'sales/Homepage/cartoon-Tshirt.jpg' %}" alt="">
+                                    <div class="des">
+                                        <span>adidas</span>
+                                        <h5>Cartoon T-shirt</h5>
+                                        <div class="star">
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        </div>
+                                        <h4>$784</h4>
+                                    </div>
+                                    <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+                                    </div>
+                                    <div class="pro">
+                                        <img src="{% static 'sales/Homepage/cartoon-Tshirt.jpg' %}" alt="">
+                                        <div class="des">
+                                            <span>adidas</span>
+                                            <h5>Cartoon T-shirt</h5>
+                                            <div class="star">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            </div>
+                                            <h4>$784</h4>
+                                        </div>
+                                        <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true">SHOP</i></a>
+                                        </div>
+                                    
+        </div>
+    </section> -->
+
+    <section id="sm-banner" class="section-p1">
+        <div class="banner-box">
+            <h4>Crazy Deals</h4>
+            <h2>Buy 1 Get 1 Free</h2>
+            <span>The Best Classic Dress is on sale at FashionState</span>
+            <button class="normal">Learn More</button>
+        </div>
+        <div class="banner-box1">
+            <h4>Spring/Summer</h4>
+            <h2>Upcoming Season</h2>
+            <span>You Best Deals for anny Season.</span>
+            <button class="normal">Collection</button>
+        </div>
+    </section>
+
+    <section id="banner3">
+        <div class="banner-box1">
+            <h2><a href="#">Men's Collection</a></h2>
+            <h3>Discounts upto 50% off</h3>
+        </div>
+
+        <div class="banner-box2">
+            <h2><a href="#">Women's Collection</a></h2>
+            <h3>Discounts upto 50% off</h3>
+        </div>
+
+        <div class="banner-box3">
+            <h2><a href="#">Footwear</a></h2>
+            <h3>Discounts upto 30%  Trade-in-offer</h3>
+        </div>
+    </section>
+    
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign up For Our Latest Updates</h4>
+            <p>Get E-mail Updates about our latest shop and <span>Special offers</span>.</p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign up</button>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <h4>Contacts:</h4>
+            <p><strong>Address:</strong> Thapathali Road, Thapathali, Kathmandu, Nepal</p>
+            <p><strong>Phone:</strong> +977 9868369363</p>
+            <p><strong>Hours:</strong>9:00 - 18:00, Mon-Sat</p>
+        
+            <div class="follow">
+                <h4 style="padding-top: 10px; padding-bottom: 5px;">Follow Us:</h4>
+                <div class="icon">
+                    <i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>
+                    <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+                    <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="{% static 'sales/Homepage/applefont.png' %}" alt="" style="width: 90px; height: auto;">
+                <img src="{% static 'sales/Homepage/playstore.png' %}" alt="" style="width: 90px; height: auto;">
+            </div>
+            <p>Secured Payment Gateways </p>
+            <div>
+            <img src="{% static 'sales/Homepage/esewa.png' %}" alt="" style="width: 90px; height: auto; padding: 0 0;" >
+            <img src="{% static 'sales/Homepage/khalti.png' %}" alt="" style="width: 90px; height: auto;">
+            <img src="{% static 'sales/Homepage/imepay.png' %}" alt="" style="width: 90px; height: auto;">
+        </div>
+        </div>
+
+        <div class="copyright">
+            <p>@2024 FashionState. All rights reserved. FashionState may earn a portion of sales from products that are purchased through our site as part of our Affiliate Partnerships with retailers. The material on this site may not be reproduced, distributed, transmitted, cached or otherwise used, except with the prior written permission of FashionState.</p>
+        </div>
+    </footer>
+    <script src="{% static 'sales/Homepage/script1.js' %}"></script>
+</body>
+</html>

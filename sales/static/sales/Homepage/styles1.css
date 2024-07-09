@@ -1,0 +1,794 @@
+@import url('https://fonts.google.com/share?selection.family=League+Spartan:wght@100..900');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Spartan','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -5px;
+}
+
+.logo img {
+    width: 100%;
+    object-fit: cover;
+}
+
+#header {
+    position: relative;
+    width: 100%;
+    height: 115px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: #F4C2DF;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover {
+    color: #DF1E8E;
+}
+
+#navbar li a.active {
+    color: #DF1E8E;
+}
+
+#navbar li a.active::after {
+    content: "";
+    width: 60%;
+    height: 2px;
+    background: #DF1E8E;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover::after {
+    content: "";
+    width: 50%;
+    height: 2px;
+    background: #DF1E8E;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+}
+#mobile{
+    display: none;
+    align-items: center;
+
+}
+
+#close{
+    display: none;
+}
+
+#hero {
+    background-image: url("hero3.jpg");
+    height: 90vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 0px right 0;
+    box-shadow: 1px 2px 5px #333;
+}
+
+#hero h4,
+#hero h2,
+#hero h1,
+#hero p,
+#hero button {
+    padding-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#hero h4 {
+    padding-top: 130px;
+    font-size: 20px;
+    color: #222;
+    font-family: cursive;
+}
+
+#hero h2 {
+    font-size: 48px;
+    line-height: 54px;
+    color: #222;
+    margin-bottom: 0%;
+}
+
+#hero h1 {
+    font-size: 50px;
+    line-height: 64px;
+    color: #222;
+}
+
+#hero p {
+    font-size: 18px;
+    color: #465b52;
+    font-family: cursive;
+}
+
+#hero button {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #DF1E8E;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: sans-serif;
+    border-radius: 20px;
+}
+
+#hero button:hover {
+    background-color: #a31565;
+    box-shadow: 1px 2px 5px #333;
+}
+
+.fe-box img {
+    width: 110px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.fe-box h6 {
+    font-size: 18px;
+    color: #333;
+    padding: 9px 8px 6px 8px;
+    line-height: 1;
+    border-radius: 4px;
+    color: #088178;
+    background-color: #fddde4;
+}
+
+#feature {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#feature .fe-box {
+    width: 180px;
+    text-align: center;
+    padding: 25px 15px;
+    box-shadow: 20px 20px 34px rgba(0,0,0,0.06);
+    border: 1px solid #cce7d0;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+#feature .fe-box:hover {
+    box-shadow: 20px 20px 24px rgba(8, 8, 8, 0.1);
+}
+
+.section-p1 {
+    padding: 40px 80px;
+}
+
+.section-m1 {
+    margin: 40px 0;
+}
+
+button.normal {
+    font-size: 14px;
+    font-family: cursive;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: #000;
+    border-radius: 4px;
+    cursor: pointer;
+    border-radius: none;
+    outline: none;
+    transition: 0.2s;
+}
+
+#products h2 {
+    font-size: 250%;
+    font-family: 'Lora';
+}
+
+#products p {
+    font-size: 100%;
+    font-family: 'Lora';
+    padding-bottom: 20px;
+}
+
+#products {
+    text-align: center;
+    background-color: #aa94a673;
+    margin-top: 0%;
+}
+
+#products .pro-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    flex-wrap: wrap;
+}
+
+#products .pro {
+    width: 23%;
+    min-width: 250px;
+    padding: 18px 12px;
+    border: 1px solid #c597bd;
+    border-radius: 10%;
+    cursor: pointer;
+    box-shadow: 10px 5px 5px #998a8a;
+    margin: 15px 0;
+    transition: 0.2s ease;
+    position: relative;
+}
+
+#products .pro img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+#products .pro .des {
+    text-align: start;
+    padding: 10px 0;
+}
+
+#products .pro .des span {
+    color: #606063;
+    font-size: 12px;
+}
+
+#products .pro .des h5 {
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 14px;
+}
+
+#products .pro .des i {
+    font-size: 12px;
+    color: rgb(243,181,25);
+}
+
+#products .pro .des h4 {
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #088178;
+}
+
+#banner {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url('banner.png');
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+}
+
+#banner h4 {
+    color: #fff;
+    font-size: 25px;
+    font-family: 'Lora';
+}
+
+#banner h2 {
+    color: #fff;
+    font-size: 40px;
+    padding: 10px 0;
+    font-family: 'Lora';
+}
+
+#banner h2 span {
+    color: #e40b0b;
+    font-size: 40px;
+    padding: 10px 0;
+    font-family: 'Lora';
+}
+
+#banner button:hover {
+    background: #e41123;
+    color: #fff;
+}
+
+#sm-banner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#sm-banner .banner-box {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    background-image: url('hero2.jpg');
+    min-width: 550px;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    padding-left: 10px;
+    border-radius: 5%;
+}
+
+#sm-banner .banner-box1 {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    background-image: url('her03.jpg');
+    min-width: 550px;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    padding-left: 10px;
+    border-radius: 5%;
+}
+
+#sm-banner h4 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+#sm-banner h2 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+#sm-banner span {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+
+#sm-banner button {
+    background-color: transparent;
+}
+
+#sm-banner button:hover {
+    background: #dd11e4;
+    color: #fff;
+}
+
+#sm-banner .banner-box:hover button {
+    background-color: #dd11e46c;
+}
+
+#sm-banner .banner-box1:hover button {
+    background-color: #818d8a60;
+}
+
+#banner3 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 80px;
+}
+
+#banner3 .banner-box1 {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    background-image: url('mens.jpg');
+    min-width: 30%;
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    padding-left: 10px;
+    border-radius: 5%;
+    margin-bottom: 20px;
+}
+
+#banner3 .banner-box2 {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    background-image: url('womens.jpg');
+    min-width: 30%;
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    padding-left: 10px;
+    border-radius: 5%;
+    margin-bottom: 20px;
+}
+
+#banner3 .banner-box3 {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    background-image: url('shoes.jpg');
+    min-width: 30%;
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    padding-left: 10px;
+    border-radius: 5%;
+    margin-bottom: 20px;
+}
+
+#banner3 h2 {
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 22px;
+    font-family: 'Lora';
+}
+
+#banner3 h3 {
+    color: #e1f71d;
+    font-weight: 800;
+    font-size: 15px;
+    font-family: 'Lora';
+}
+
+#banner3 .banner-box1:hover {
+    box-shadow: 10px 5px 8px #867b7b;
+}
+
+#banner3 .banner-box2:hover {
+    box-shadow: 10px 5px 8px #867b7b;
+}
+
+#banner3 .banner-box3:hover {
+    box-shadow: 10px 5px 8px #867b7b;
+}
+
+#banner3 a {
+    font-family: cursive;
+    color: white;
+}
+
+#newsletter {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    background-image: url("news.jpg");
+    background-repeat: no-repeat;
+    background-position: 20% 30%;
+    margin-bottom: 0px;
+}
+
+#newsletter h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #bd7e7e;
+    font-family: 'Lora';
+}
+
+#newsletter p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #818ea0;
+    font-family: 'Lora';
+}
+
+#newsletter p span {
+    color: #e221d9;
+    font-family: 'Lora';
+}
+
+#newsletter input {
+    height: 3.125rem;
+    padding: 0 1.25em;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    outline: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#newsletter button {
+    background-color: #bd7e7e;
+    color: #fff;
+    width: 40%;
+}
+
+#newsletter .form {
+    display: flex;
+    width: 40%;
+}
+
+footer {
+    background-color: #d3d8dfbd;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+footer .col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+footer h4 {
+    font-size: 14px;
+    padding-bottom: 20px;
+    font-family: "Lora";
+}
+
+footer h4 {
+    font-size: 13px;
+    margin: 0 0 8px 0;
+    font-family: "Lora";
+}
+
+footer a {
+    font-size: 13px;
+    text-decoration: none;
+    color: #222;
+    margin: 0 0 8px 0;
+    font-family: "Lora";
+}
+
+footer .follow i {
+    color: #465b52;
+    padding-right: 4px;
+    cursor: pointer;
+}
+
+footer .install p {
+    font-family: "Lora";
+}
+
+footer .install img {
+    margin: 10px 0 15px;
+}
+
+footer .follow i:hover,
+footer a:hover {
+    color:#d82424;
+}
+
+footer .col h4, p {
+    font-family: "Lora";
+}
+
+footer .copyright {
+    width: 100%;
+    text-align: center;
+    font-size: 70%;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    #header {
+        flex-direction: column;
+        padding: 20px 20px;
+    }
+
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 300px;
+        background-color: #e3e6f3;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+    }
+
+    #navbar.active{
+        right: 0px;
+    }
+
+    #navbar li {
+        margin-bottom: 25px;
+        padding: 10px 0;
+    }
+
+    #mobile{
+        display: flex;
+        align-items: center;
+    
+    }
+
+    #close{
+       display: initial;
+       position: absolute;
+       top: 30px;
+       left: 30px;
+       color: #222;
+       font-size: 24px;
+    }
+    
+    #lg-bag{
+        display: none;
+    }
+    #feature, #banner3, #products .pro-container, #newsletter {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #feature .fe-box, #banner3 .banner-box1, #banner3 .banner-box2, #banner3 .banner-box3 {
+        width: 80%;
+        min-width: unset;
+    }
+
+    #sm-banner .banner-box, #sm-banner .banner-box1 {
+        min-width: unset;
+        width: 100%;
+        height: 40vh;
+    }
+}
+
+
+/*Shop Page*/
+
+#page-header{
+    background-image: url('shopbanner.png');
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#page-header h2{
+    font-family: 'Lora';
+    color: rgba(255, 255, 255, 0.911);
+    font-size: 40px;
+}
+
+#page-header p{
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+}
+
+#pagination{
+    text-align: center;
+    padding-bottom: 0px;
+}
+
+#pagination a{
+    text-decoration: none;
+    background-color: #bd7e7e; 
+    padding: 15px 20px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 600;
+}
+
+#pagination a i{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Single Product */
+#prodetails{
+    display: flex;
+    margin-top: 20px;
+    font-family: 'Lora';
+}
+
+#prodetails .single-pro-image{
+    width: 40%;
+    margin-right: 50px;
+}
+
+.small-img-group{
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+}
+
+#prodetails .single-pro-details{
+    width: 50%;
+    padding-top: 30px;
+}
+
+#prodetails .single-pro-details h4{
+    padding: 40px 0 20px 0;
+    font-family: 'Lora';
+}
+
+#prodetails .single-pro-details select{
+    display: block;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+#prodetails .single-pro-details input{
+    width: 50px;
+    height: 47px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#prodetails .single-pro-details button{
+    background-color: #ee71babb;
+    font-family: 'Lora';
+}
+
+#prodetails .single-pro-details h6{
+    font-family: 'Lora';
+    font-size: 12px;
+}
+
+#prodetails .single-pro-details input:focus{
+    outline: none;
+}
+
+#prodetails .single-pro-details span{
+    line-height: 25px;
+    font-family: 'Lora';
+    color: #32373d;
+}
+
