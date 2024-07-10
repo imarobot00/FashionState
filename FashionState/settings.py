@@ -159,3 +159,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+LOGIN_URL = 'submit_login' #URL to redirect for LOGIN
+
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'sales.backend.CustomAuthBackend',
+)
+
+# Session settings
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Expire the session when the browser is closed
+SESSION_COOKIE_AGE = 1209600  # Set the session age to two weeks (in seconds)
+SESSION_SAVE_EVERY_REQUEST = True  # Save the session to the database on every request
