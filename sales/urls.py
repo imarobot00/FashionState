@@ -12,6 +12,8 @@ urlpatterns=[
     path('signup/',views.signup,name='signup'),
     path('submit_signup/', views.submit_signup, name='submit_signup'),
     path('shop/',views.shop,name="shop"),
+    path('retailer_login/', views.retailer_login, name='retailer_login'),
+    path('retailer_dashboard/', views.retailer_dashboard, name='retailer_dashboard'),
     path('shop/<int:id>/',views.product_detail, name='product_detail')
 ]
 

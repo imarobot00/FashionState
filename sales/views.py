@@ -108,3 +108,18 @@ def product_detail(request, id):
         'image': product[5]
     }
     return render(request, 'Home/sproduct.html', {'product': product_dict})
+
+def retailer_login(request):
+    return render(request, 'Home/retailer_login.html')
+
+def retailer_dashboard(request):
+    if 'retailer_id' not in request.session:
+        return redirect('retailer_login')
+
+    retailer_id = request.session['retailer_id']
+    
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT * FROM items WHERE retailer_id = %s", [retailer_id])
+        items = cursor.fetchall()
+
+    return render(request, 'Home/retailer_dashboard.html', {'items': items})
