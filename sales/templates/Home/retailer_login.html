@@ -1,26 +1,80 @@
-<!-- templates/retailer_login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retailer Login</title>
+    <title>Fashion State</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'sales/Homepage/Fonts/fontsawesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sales/Homepage/retailstyles.css' %}">
 </head>
 <body>
-    <h2>Retailer Login</h2>
-    <form method="post" action="/retailer_login/">
-        {% csrf_token %}
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+    <div id="gif-container">
+        <img src="{% static 'sales/download.gif' %}" alt="Animated Logo" id="animated-logo">
+    </div>
+    <div id="logo-container" style="display: none;">
+        <img src="{% static 'sales/logo.png' %}" alt="Logo" class="round-logo">
+    </div>
+    <div id="container" style="display: none;">
+        <div id="login-container" class="form-container" style="display: none;">
+            <form id="login-form" action="/retailer_login/" method="post">
+                {% csrf_token %}
+                <h2>Login</h2>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <button type="submit">Login</button>
+                <div id="signup-link-container">
+                    <p>Don't have an account? <a href="#" class="toggle-link" onclick="toggleForms()">Sign up</a>.</p>
+                </div>
+            </form>
         </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+        <div id="signup-container" class="form-container" style="display: none;">
+            <form id="signup-form" action="" method="POST">
+                {% csrf_token %}
+                <h2>Sign Up</h2>
+                <label for="new-username">Username:</label>
+                <input type="text" id="new-username" name="username" required>
+                <br>
+                <label for="new-password">Password:</label>
+                <input type="password" id="new-password" name="password" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <label for="phone_no">Phone Number:</label>
+                <input type="text" id="phone_no" name="phone_no" required>
+                <br>
+                <button type="submit">Sign Up</button>
+                <div id="login-link-container">
+                    <p>Already have an account? <a href="#" class="toggle-link" onclick="toggleForms()">Login</a>.</p>
+                </div>
+            </form>
         </div>
-        <div>
-            <button type="submit">Login</button>
-        </div>
-    </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Directly show the login form
+    document.getElementById('container').style.display = 'flex';
+    document.getElementById('login-container').style.display = 'flex';
+    document.getElementById('logo-container').style.display = 'flex';
+});
+
+function toggleForms() {
+    var loginContainer = document.getElementById('login-container');
+    var signupContainer = document.getElementById('signup-container');
+    if (loginContainer.style.display === 'none') {
+        loginContainer.style.display = 'flex';
+        signupContainer.style.display = 'none';
+    } else {
+        loginContainer.style.display = 'none';
+        signupContainer.style.display = 'flex';
+    }
+}
+
+    </script>
 </body>
 </html>

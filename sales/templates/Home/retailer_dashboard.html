@@ -1,34 +1,119 @@
-<!-- templates/retailer_dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retailer Dashboard</title>
+    <title>FashionState - Retailer Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'sales/Homepage/Fonts/fontsawesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sales/Homepage/styles1.css' %}">
 </head>
 <body>
-    <h2>Retailer Dashboard</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Product ID</th>
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Description</th>
-                <th>Image</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in items %}
-            <tr>
-                <td>{{ item.0 }}</td>
-                <td>{{ item.1 }}</td>
-                <td>{{ item.2 }}</td>
-                <td>{{ item.3 }}</td>
-                <td><img src="{{ item.4 }}" alt="Product Image" width="50" height="50"></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <section id="header">
+        <a href="#"><img src="{% static 'sales\Homepage\logo.png' %}" class="logo" alt="logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Forums</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#" class="active" id="retailer-link">Become a Retailer</a></li>
+                <li id="lg-bag"><a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a></li>
+                <a href="#" id="close"><i class="fa fa-times" aria-hidden="true"></i></a>
+            </ul>
+            <div id="mobile">
+                <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="padding-left: 250px;"></i></a>
+                <i id="bar" class="fa fa-outdent fa-2x" aria-hidden="true" style="padding-left: 50px;"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Retailer Dashboard -->
+    <section id="retailer-dashboard">
+        <div class="dashboard-container">
+            <div class="retailer-details">
+                <h2>Welcome, Retailer Name</h2>
+                <p><strong>Email:</strong> retailer@example.com</p>
+                <p><strong>Phone:</strong> 123-456-7890</p>
+                <button id="add-product-btn">Add Product</button>
+            </div>
+            <div class="products-section">
+                <h3>Your Products</h3>
+                <div class="products-list">
+                    <!-- Example product item -->
+                    <div class="product-item">
+                        <img src="product_image.jpg" alt="Product Image">
+                        <div class="product-details">
+                            <h4>Product Name</h4>
+                            <p><strong>Price:</strong> $100</p>
+                            <p><strong>Description:</strong> A brief description of the product.</p>
+                        </div>
+                    </div>
+                    <!-- Add more product items here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Retailer Modal -->
+    <section id="modal-section">
+        <div id="retailer-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="retailer-close">&times;</span>
+                <h2 style="padding-bottom: 20px;">Add a New Product</h2>
+                <form action="/submit_retailer" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="product_name">Product Name:</label>
+                        <input type="text" id="product_name" name="product_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price:</label>
+                        <input type="number" id="price" name="price" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Product Image:</label>
+                        <input type="file" id="image" name="image" accept="image/*" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("retailer-modal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("add-product-btn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementById("retailer-close");
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "flex";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
