@@ -14,7 +14,9 @@ urlpatterns=[
     path('shop/',views.shop,name="shop"),
     path('retailer_login/', views.retailer_login, name='retailer_login'),
     path('retailer_dashboard/', views.retailer_dashboard, name='retailer_dashboard'),
-    path('shop/<int:id>/',views.product_detail, name='product_detail')
+    path('shop/<int:id>/',views.product_detail, name='product_detail'),
+    path('profile/',views.profile,name='profile'),
+    path('cart/',views.cart,name='cart')
 ]
 
 # Serve media files during development

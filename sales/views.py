@@ -123,3 +123,11 @@ def retailer_dashboard(request):
         items = cursor.fetchall()
 
     return render(request, 'Home/retailer_dashboard.html', {'items': items})
+
+@login_required
+def cart(request):
+    return render(request,'Home/cart.html')
+
+@login_required
+def profile(request):
+    return render(request,'Home/profile.html')

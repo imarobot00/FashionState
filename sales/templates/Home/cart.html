@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FashionState - Retailer Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'sales/Homepage/Fonts/fontsawesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sales/Homepage/styles1.css' %}">
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="{% static 'sales\Homepage\logo.png' %}" class="logo" alt="logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="#" >Home</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
+                <li><a href="#">Forums</a></li>
+                
+                <li><a href="#">Contacts</a></li>
+                <li><a href="{% url 'retailer_login'%}">Become a Retailer</a></li>
+                <li id="lg-bag"><a href="{% url 'cart'%}" class="active"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li>
+                <li><a href="{% url 'profile'%}"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a></li>
+                <a href="#" id="close"><i class="fa fa-times" aria-hidden="true"></i></a>
+            </ul>
+            <div id="mobile">
+                <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="padding-left: 250px;"></i></a>
+                <i id="bar" class="fa fa-outdent fa-2x" aria-hidden="true" style="padding-left: 50px;"></i>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="cart" class="section-p1">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Remove</td>
+                    <td>Image</td>
+                    <td>Product</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#"><i class="fa fa-times-circle" aria-hidden="true"></i></a></td>
+                    <td><img src="cartoon-Tshirt.jpg" alt=""></td>
+                    <td>Cartoon T-Shirt</td>
+                    <td>$118.19</td>
+                    <td><input type="number" value="1"></td>
+                    <td>$118.19</td>
+                </tr>
+                <tr>
+                    <td><a href="#"><i class="fa fa-times-circle" aria-hidden="true"></i></a></td>
+                    <td><img src="cartoon-Tshirt.jpg" alt=""></td>
+                    <td>Cartoon T-Shirt</td>
+                    <td>$118.19</td>
+                    <td><input type="number" value="1"></td>
+                    <td>$118.19</td>
+                </tr>
+                <tr>
+                    <td><a href="#"><i class="fa fa-times-circle" aria-hidden="true"></i></a></td>
+                    <td><img src="cartoon-Tshirt.jpg" alt=""></td>
+                    <td>Cartoon T-Shirt</td>
+                    <td>$118.19</td>
+                    <td><input type="number" value="1"></td>
+                    <td>$118.19</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="cart-add" class="section-p1">
+        <div id="subtotal">
+            <h3>Cart Totals</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td>$ 335</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong>$ 335</strong></td>
+                </tr>
+            </table>
+            <button class="normal">Proceed to checkout</button>
+        </div>
+    </section>
+
+
+    <footer class="section-p1">
+        <div class="col">
+            <h4>Contacts:</h4>
+            <p><strong>Address:</strong> Thapathali Road, Thapathali, Kathmandu, Nepal</p>
+            <p><strong>Phone:</strong> +977 9868369363</p>
+            <p><strong>Hours:</strong>9:00 - 18:00, Mon-Sat</p>
+        
+            <div class="follow">
+                <h4 style="padding-top: 10px; padding-bottom: 5px;">Follow Us:</h4>
+                <div class="icon">
+                    <i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>
+                    <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+                    <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="{% static 'sales/Homepage/applefont.png' %}" alt="" style="width: 90px; height: auto;">
+                <img src="{% static 'sales/Homepage/playstore.png' %}" alt="" style="width: 90px; height: auto;">
+            </div>
+            <p>Secured Payment Gateways </p>
+            <div>
+            <img src="{% static 'sales/Homepage/esewa.png' %}" alt="" style="width: 90px; height: auto; padding: 0 0;" >
+            <img src="{% static 'sales/Homepage/khalti.png' %}" alt="" style="width: 90px; height: auto;">
+            <img src="{% static 'sales/Homepage/imepay.png' %}" alt="" style="width: 90px; height: auto;">
+        </div>
+        </div>
+
+        <div class="copyright">
+            <p>@2024 FashionState. All rights reserved. FashionState may earn a portion of sales from products that are purchased through our site as part of our Affiliate Partnerships with retailers. The material on this site may not be reproduced, distributed, transmitted, cached or otherwise used, except with the prior written permission of FashionState.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
