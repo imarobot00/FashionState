@@ -81,7 +81,7 @@ def get_new_items():
 @login_required
 def shop(request):
     with connection.cursor() as cursor:
-        cursor.execute("SELECT item_id, name, price, image_path FROM items")
+        cursor.execute("select items.item_id,items.name,items.price,items.image_path,retailer.name from items join retailer on items.retailer_id=retailer.retailer_id;")
         products = cursor.fetchall()
 
     paginator = Paginator(products, 12)
