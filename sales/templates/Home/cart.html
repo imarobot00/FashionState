@@ -11,7 +11,7 @@
 </head>
 <body>
     <section id="header">
-        <a href="#"><img src="{% static 'sales\Homepage\logo.png' %}" class="logo" alt="logo"></a>
+        <a href="#"><img src="{% static 'sales/Homepage/logo.png' %}" class="logo" alt="logo"></a>
         <div>
             <ul id="navbar">
                 <li><a href="#" >Home</a></li>
@@ -45,32 +45,19 @@
                 </tr>
             </thead>
             <tbody>
+                {% for item in cart_items %}
                 <tr>
                     <td><a href="#"><i class="fa fa-times-circle" aria-hidden="true"></i></a></td>
-                    <td><img src="cartoon-Tshirt.jpg" alt=""></td>
-                    <td>Cartoon T-Shirt</td>
-                    <td>$118.19</td>
-                    <td><input type="number" value="1"></td>
-                    <td>$118.19</td>
+                    <td><img src="{{ MEDIA_URL }}{{ item.3 }}" alt=""></td>
+                    <td>{{ item.1 }}</td>
+                    <td class="price">Rs {{ item.2 }}</td>
+                    <td><input type="number" class="quantity" value="1" min="1"></td>
+                    <td class="subtotal">Rs {{ item.2 }}</td>
                 </tr>
-                <tr>
-                    <td><a href="#"><i class="fa fa-times-circle" aria-hidden="true"></i></a></td>
-                    <td><img src="cartoon-Tshirt.jpg" alt=""></td>
-                    <td>Cartoon T-Shirt</td>
-                    <td>$118.19</td>
-                    <td><input type="number" value="1"></td>
-                    <td>$118.19</td>
-                </tr>
-                <tr>
-                    <td><a href="#"><i class="fa fa-times-circle" aria-hidden="true"></i></a></td>
-                    <td><img src="cartoon-Tshirt.jpg" alt=""></td>
-                    <td>Cartoon T-Shirt</td>
-                    <td>$118.19</td>
-                    <td><input type="number" value="1"></td>
-                    <td>$118.19</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
+        <button class="normal" onclick="resummarize()">Resummarize</button>
     </section>
 
     <section id="cart-add" class="section-p1">
@@ -79,7 +66,7 @@
             <table>
                 <tr>
                     <td>Cart Subtotal</td>
-                    <td>$ 335</td>
+                    <td id="cart-subtotal">Rs {{ total_price }}</td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
@@ -87,13 +74,12 @@
                 </tr>
                 <tr>
                     <td><strong>Total</strong></td>
-                    <td><strong>$ 335</strong></td>
+                    <td id="cart-total"><strong>Rs {{ total_price }}</strong></td>
                 </tr>
             </table>
             <button class="normal">Proceed to checkout</button>
         </div>
     </section>
-
 
     <footer class="section-p1">
         <div class="col">
@@ -148,6 +134,27 @@
             <p>@2024 FashionState. All rights reserved. FashionState may earn a portion of sales from products that are purchased through our site as part of our Affiliate Partnerships with retailers. The material on this site may not be reproduced, distributed, transmitted, cached or otherwise used, except with the prior written permission of FashionState.</p>
         </div>
     </footer>
+
+    <script>
+        function resummarize() {
+            var rows = document.querySelectorAll("tbody tr");
+            var total = 0;
+
+            rows.forEach(function(row) {
+                var price = parseFloat(row.querySelector(".price").innerText.replace('Rs ', ''));
+                var quantity = parseInt(row.querySelector(".quantity").value);
+                var subtotal = price * quantity;
+                row.querySelector(".subtotal").innerText = 'Rs ' + subtotal.toFixed(2);
+                total += subtotal;
+                document.getElementById("cart-subtotal").innerText = 'Rs ' + total.toFixed(2);
+                document.getElementById("cart-total").innerText = 'Rs ' + total.toFixed(2);
+            });
+
+            document.getElementById("cart-subtotal").innerText = 'Rs ' + total.toFixed(2);
+            document.getElementById("cart-total").innerText = 'Rs ' + total.toFixed(2);
+            
+        }
+    </script>
 
 </body>
 </html>

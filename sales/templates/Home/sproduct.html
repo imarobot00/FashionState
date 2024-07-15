@@ -62,7 +62,7 @@
                 <!-- Add other sizes if available -->
             </select>
             <input type="number" value="1">
-            <button class="normal">Add to Cart</button>
+            <a href="{% url 'add_to_cart' product.id product.name|urlencode product.price product.image%}"><button class="normal">Add to Cart</button></a>
             <h4>Product Details</h4>
             <span>{{ product.description }}</span>
         </div>

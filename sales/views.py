@@ -95,7 +95,7 @@ def shop(request):
     context = {'page_obj': page_obj}
     return render(request, 'Home/products.html', context)
 
-@login_required
+
 @login_required
 def product_detail(request, id):
     with connection.cursor() as cursor:
@@ -149,8 +149,39 @@ def retailer_dashboard(request):
 
 @login_required
 def cart(request):
-    return render(request,'Home/cart.html')
+    user_id = request.user.id  # Get the user ID of the logged-in user
+
+    with connection.cursor() as cursor:
+        cursor.execute(
+            'SELECT product_id, product_name, price, image_path FROM cart WHERE user_id = %s', [user_id]
+        )
+        cart_items = cursor.fetchall()
+
+    # Calculate the total price
+    total_price = sum(item[2] for item in cart_items)
+
+    return render(request, 'Home/cart.html', {
+        'cart_items': cart_items,
+        'total_price': total_price,
+    })
 
 @login_required
 def profile(request):
     return render(request,'Home/profile.html')
+
+@login_required
+def add_to_cart(request, item_id, name, price,image):
+    user_id = request.user.id  # Get the user ID of the logged-in user
+
+    try:
+        with connection.cursor() as cursor:
+            # Insert the item into the cart
+            cursor.execute(
+                'INSERT INTO cart (product_id, product_name, user_id, price,image_path) VALUES (%s, %s, %s, %s,%s)',
+                [item_id, name, user_id, price,image]
+            )
+
+        return redirect('cart')  # Redirect to the cart view
+    except Exception as e:
+        return HttpResponse(f'Error: {e}', status=500)
+    

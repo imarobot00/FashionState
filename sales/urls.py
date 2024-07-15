@@ -1,8 +1,11 @@
 
-from django.urls import path
+from django.urls import path,register_converter
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from .converters import FloatConverter
+
+register_converter(FloatConverter, 'float')
 
 
 urlpatterns=[
@@ -18,6 +21,7 @@ urlpatterns=[
     path('profile/',views.profile,name='profile'),
     path('cart/',views.cart,name='cart'),
     path('homepage/', views.homepage, name='homepage'),
+    path('add_to_cart/<int:item_id>/<str:name>/<float:price>/<path:image>/', views.add_to_cart, name='add_to_cart'),
 ]
 
 # Serve media files during development
