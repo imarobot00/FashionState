@@ -22,16 +22,20 @@ def submit_login(request):
         
         if user is not None:
             login(request, user)
-            items = get_items()
-            new_items = get_new_items()
-            return render(request, "Home/homepage.html", {
-                'items': items,
-                'new_items': new_items
-            })
+            return redirect('homepage')  # Redirect to the homepage view
         else:
             return HttpResponse('Invalid username or password.')
     else:
         return HttpResponse('Invalid request.')
+
+@login_required
+def homepage(request):
+    items = get_items()
+    new_items = get_new_items()
+    return render(request, "Home/homepage.html", {
+        'items': items,
+        'new_items': new_items
+    })
 
 def signup(request):
     return HttpResponse('Signup Window.')
@@ -92,10 +96,14 @@ def shop(request):
     return render(request, 'Home/products.html', context)
 
 @login_required
+@login_required
 def product_detail(request, id):
     with connection.cursor() as cursor:
         cursor.execute("SELECT * from items where item_id = %s", [id])
         product = cursor.fetchone()
+        
+        cursor.execute("SELECT * from items limit 4;")  # Fetch all items for the featured products section
+        items = cursor.fetchall()
     
     if not product:
         raise Http404("Product does not exist")
@@ -107,7 +115,22 @@ def product_detail(request, id):
         'description': product[8],
         'image': product[5]
     }
-    return render(request, 'Home/sproduct.html', {'product': product_dict})
+    
+    items_dict = [
+        {
+            'id': item[0],
+            'name': item[1],
+            'category': item[2],
+            'price': item[4],
+            'image': item[5],
+        }
+        for item in items
+    ]
+    
+    return render(request, 'Home/sproduct.html', {
+        'product': product_dict,
+        'items': items_dict,
+    })
 
 def retailer_login(request):
     return render(request, 'Home/retailer_login.html')
