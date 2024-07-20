@@ -14,7 +14,7 @@
         <a href="#"><img src="{% static 'sales\Homepage\logo.png' %}" class="logo" alt="logo"></a>
         <div>
             <ul id="navbar">
-                <li><a href="#">Home</a></li>
+                <li><a href="{% url 'homepage' %}">Home</a></li>
                 <li><a href="{% url 'shop' %}">Shop</a></li>
                 <li><a href="#">Forums</a></li>
                 
@@ -36,23 +36,30 @@
     <section id="retailer-dashboard">
         <div class="dashboard-container">
             <div class="retailer-details">
-                <h2>Welcome, Bipul</h2>
-                <p><strong>Email:</strong> retailer@example.com</p>
-                <p><strong>Phone:</strong> 123-456-7890</p>
+                <h2>Welcome, {{ combined_details.user_info.username }}</h2>
+                <p><strong>Email:</strong> {{ combined_details.user_info.email }}</p>
+                <p><strong>Phone:</strong> {{ combined_details.user_info.phone_no }}</p>
             </div>
             <div class="products-section">
                 <h3>Your Purchased Products</h3>
+
                 <div class="products-list">
+                {% if combined_details.items %}
                     <!-- Example product item -->
+                    {% for item in combined_details.items %}
                     <div class="product-item">
-                        <img src="product_image.jpg" alt="Product Image">
+                        <img src="{{ MEDIA_URL }}{{ item.4 }}" alt="Product Image">
                         <div class="product-details">
-                            <h4>Product Name</h4>
-                            <p><strong>Price:</strong> $100</p>
-                            <p><strong>Description:</strong> A brief description of the product.</p>
+                            <h4>{{ item.1 }}</h4>
+                            <p><strong>Price:</strong> ${{ item.2 }}</p>
+                            <p><strong>Description:</strong>{{ item.3 }}</p>
                         </div>
                     </div>
+                    {% endfor %}
                     <!-- Add more product items here -->
+                {% else %}
+                    <p>No items purchased.</p>
+                {% endif %}
                 </div>
             </div>
         </div>

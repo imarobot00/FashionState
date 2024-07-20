@@ -16,12 +16,15 @@ urlpatterns=[
     path('submit_signup/', views.submit_signup, name='submit_signup'),
     path('shop/',views.shop,name="shop"),
     path('retailer_login/', views.retailer_login, name='retailer_login'),
+    path('retailer_signup/', views.retailer_signup, name='retailer_signup'),
     path('retailer_dashboard/', views.retailer_dashboard, name='retailer_dashboard'),
     path('shop/<int:id>/',views.product_detail, name='product_detail'),
     path('profile/',views.profile,name='profile'),
     path('cart/',views.cart,name='cart'),
     path('homepage/', views.homepage, name='homepage'),
     path('add_to_cart/<int:item_id>/<str:name>/<float:price>/<path:image>/', views.add_to_cart, name='add_to_cart'),
+    path('submit_retailer/', views.submit_retailer, name='submit_retailer'),
+    path('checkout/', views.checkout, name='checkout'),
 ]
 
 # Serve media files during development

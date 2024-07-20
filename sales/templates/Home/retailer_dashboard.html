@@ -11,16 +11,16 @@
 </head>
 <body>
     <section id="header">
-        <a href="#"><img src="{% static 'sales\Homepage\logo.png' %}" class="logo" alt="logo"></a>
+        <a href="#"><img src="{% static 'sales/Homepage/logo.png' %}" class="logo" alt="logo"></a>
         <div>
             <ul id="navbar">
                 <li><a href="{% url 'homepage' %}">Home</a></li>
-                <li><a href="#">Shop</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
                 <li><a href="#">Forums</a></li>
                 <li><a href="#">Contacts</a></li>
                 <li><a href="#" class="active" id="retailer-link">Become a Retailer</a></li>
-                <li id="lg-bag"><a href="{% url 'cart'%}"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li>
-                <li><a href="{% url 'profile'%}"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a></li>
+                <li id="lg-bag"><a href="{% url 'cart' %}"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li>
+                <li><a href="{% url 'profile' %}"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a></li>
                 <a href="#" id="close"><i class="fa fa-times" aria-hidden="true"></i></a>
             </ul>
             <div id="mobile">
@@ -34,28 +34,31 @@
     <section id="retailer-dashboard">
         <div class="dashboard-container">
             <div class="retailer-details">
-                <h2>Welcome, Retailer Name</h2>
-                <p><strong>Email:</strong> retailer@example.com</p>
-                <p><strong>Phone:</strong> 123-456-7890</p>
+                <h2>Welcome, {{ retailer.name }}</h2>
+                <p><strong>Email:</strong> {{ retailer.email }}</p>
+                <p><strong>Phone:</strong> {{ retailer.phone_no }}</p>
                 <button id="add-product-btn">Add Product</button>
             </div>
             <div class="products-section">
                 <h3>Your Products</h3>
                 <div class="products-list">
-                    <!-- Example product item -->
+                    {% for item in items %}
                     <div class="product-item">
-                        <img src="product_image.jpg" alt="Product Image">
+                        <img src="{{ item.image_path }}" alt="Product Image">
                         <div class="product-details">
-                            <h4>Product Name</h4>
-                            <p><strong>Price:</strong> $100</p>
-                            <p><strong>Description:</strong> A brief description of the product.</p>
+                            <h4>{{ item.name }}</h4>
+                            <p><strong>Price:</strong> ${{ item.price }}</p>
+                            <p><strong>Description:</strong> {{ item.description }}</p>
                         </div>
                     </div>
-                    <!-- Add more product items here -->
+                    {% empty %}
+                    <p>No products found.</p>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Retailer Modal -->
     <section id="modal-section">
@@ -63,7 +66,8 @@
             <div class="modal-content">
                 <span class="close" id="retailer-close">&times;</span>
                 <h2 style="padding-bottom: 20px;">Add a New Product</h2>
-                <form action="/submit_retailer" method="post" enctype="multipart/form-data">
+                <form action="{% url 'submit_retailer' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="form-group">
                         <label for="product_name">Product Name:</label>
                         <input type="text" id="product_name" name="product_name" required>
@@ -75,6 +79,10 @@
                     <div class="form-group">
                         <label for="description">Description:</label>
                         <textarea id="description" name="description" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="stocks">Stocks</label>
+                        <input type="number" id="stocks" name="stocks" required>
                     </div>
                     <div class="form-group">
                         <label for="image">Product Image:</label>

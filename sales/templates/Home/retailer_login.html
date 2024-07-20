@@ -33,7 +33,7 @@
             </form>
         </div>
         <div id="signup-container" class="form-container" style="display: none;">
-            <form id="signup-form" action="" method="POST">
+            <form id="signup-form" action="{% url 'retailer_signup' %}" method="POST">
                 {% csrf_token %}
                 <h2>Sign Up</h2>
                 <label for="new-username">Username:</label>
@@ -47,6 +47,12 @@
                 <br>
                 <label for="phone_no">Phone Number:</label>
                 <input type="text" id="phone_no" name="phone_no" required>
+                <br>
+                <label for="new-address">Address:</label>
+                <input type="text" id="address" name="address" required>
+                <br>
+                <label for="liscense_no">Business Liscense No:</label>
+                <input type="text" id="business_liscense_no" name="business_liscense_no" required>
                 <br>
                 <button type="submit">Sign Up</button>
                 <div id="login-link-container">

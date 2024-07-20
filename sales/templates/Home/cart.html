@@ -14,20 +14,18 @@
         <a href="#"><img src="{% static 'sales/Homepage/logo.png' %}" class="logo" alt="logo"></a>
         <div>
             <ul id="navbar">
-                <li><a href="#" >Home</a></li>
+                <li><a href="{% url 'homepage' %}">Home</a></li>
                 <li><a href="{% url 'shop' %}">Shop</a></li>
                 <li><a href="#">Forums</a></li>
-                
                 <li><a href="#">Contacts</a></li>
-                <li><a href="{% url 'retailer_login'%}">Become a Retailer</a></li>
-                <li id="lg-bag"><a href="{% url 'cart'%}" class="active"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li>
-                <li><a href="{% url 'profile'%}"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a></li>
+                <li><a href="{% url 'retailer_login' %}">Become a Retailer</a></li>
+                <li id="lg-bag"><a href="{% url 'cart' %}" class="active"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li>
+                <li><a href="{% url 'profile' %}"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a></li>
                 <a href="#" id="close"><i class="fa fa-times" aria-hidden="true"></i></a>
             </ul>
             <div id="mobile">
                 <a href="#"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="padding-left: 250px;"></i></a>
                 <i id="bar" class="fa fa-outdent fa-2x" aria-hidden="true" style="padding-left: 50px;"></i>
-                
             </div>
         </div>
     </section>
@@ -46,7 +44,7 @@
             </thead>
             <tbody>
                 {% for item in cart_items %}
-                <tr>
+                <tr data-item-id="{{ item.0 }}" data-item-quantity="1">
                     <td><a href="#"><i class="fa fa-times-circle" aria-hidden="true"></i></a></td>
                     <td><img src="{{ MEDIA_URL }}{{ item.3 }}" alt=""></td>
                     <td>{{ item.1 }}</td>
@@ -77,8 +75,27 @@
                     <td id="cart-total"><strong>Rs {{ total_price }}</strong></td>
                 </tr>
             </table>
-            <button class="normal">Proceed to checkout</button>
+            <button class="normal" onclick="showCheckout()">Proceed to checkout</button>
         </div>
+    </section>
+
+    <section id="checkout" class="section-p1" style="display: none;">
+        <h3>Checkout</h3>
+        <form id="checkout-form" method="post" action="{% url 'checkout' %}">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Total Amount</td>
+                    <td><strong id="checkout-total">Rs {{ total_price }}</strong></td>
+                </tr>
+                <tr>
+                    <td>Bank Account Number</td>
+                    <td><input type="text" id="bank-account" name="bank_account" required></td>
+                </tr>
+            </table>
+            <input type="hidden" name="total_price" id="hidden-total-price">
+            <button class="normal" type="submit">Place Order</button>
+        </form>
     </section>
 
     <footer class="section-p1">
@@ -122,12 +139,12 @@
                 <img src="{% static 'sales/Homepage/applefont.png' %}" alt="" style="width: 90px; height: auto;">
                 <img src="{% static 'sales/Homepage/playstore.png' %}" alt="" style="width: 90px; height: auto;">
             </div>
-            <p>Secured Payment Gateways </p>
+            <p>Secured Payment Gateways</p>
             <div>
-            <img src="{% static 'sales/Homepage/esewa.png' %}" alt="" style="width: 90px; height: auto; padding: 0 0;" >
-            <img src="{% static 'sales/Homepage/khalti.png' %}" alt="" style="width: 90px; height: auto;">
-            <img src="{% static 'sales/Homepage/imepay.png' %}" alt="" style="width: 90px; height: auto;">
-        </div>
+                <img src="{% static 'sales/Homepage/esewa.png' %}" alt="" style="width: 90px; height: auto; padding: 0 0;">
+                <img src="{% static 'sales/Homepage/khalti.png' %}" alt="" style="width: 90px; height: auto;">
+                <img src="{% static 'sales/Homepage/imepay.png' %}" alt="" style="width: 90px; height: auto;">
+            </div>
         </div>
 
         <div class="copyright">
@@ -146,15 +163,28 @@
                 var subtotal = price * quantity;
                 row.querySelector(".subtotal").innerText = 'Rs ' + subtotal.toFixed(2);
                 total += subtotal;
-                document.getElementById("cart-subtotal").innerText = 'Rs ' + total.toFixed(2);
-                document.getElementById("cart-total").innerText = 'Rs ' + total.toFixed(2);
             });
 
             document.getElementById("cart-subtotal").innerText = 'Rs ' + total.toFixed(2);
             document.getElementById("cart-total").innerText = 'Rs ' + total.toFixed(2);
-            
+            document.getElementById("checkout-total").innerText = 'Rs ' + total.toFixed(2);
         }
-    </script>
 
+        function showCheckout() {
+            document.getElementById('checkout').style.display = 'block';
+            document.getElementById('cart').style.display = 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var totalAmountText = document.getElementById('checkout-total').innerText;
+            var totalAmount = totalAmountText.replace('Rs ', '').trim();
+            document.getElementById('hidden-total-price').value = totalAmount;
+        });
+
+        document.querySelector('.normal').addEventListener('click', function(event) {
+            event.preventDefault();
+            showCheckout();
+        });
+    </script>
 </body>
 </html>
