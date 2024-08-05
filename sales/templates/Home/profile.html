@@ -48,7 +48,7 @@
                     <!-- Example product item -->
                     {% for item in combined_details.items %}
                     <div class="product-item">
-                        <img src="{{ MEDIA_URL }}{{ item.4 }}" alt="Product Image">
+                        <img src="{{ item.4 }}" alt="Product Image">
                         <div class="product-details">
                             <h4>{{ item.1 }}</h4>
                             <p><strong>Price:</strong> ${{ item.2 }}</p>

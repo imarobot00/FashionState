@@ -46,7 +46,7 @@
                 {% for item in cart_items %}
                 <tr data-item-id="{{ item.0 }}">
                     <td><a href="#"><i class="fa fa-times-circle" aria-hidden="true"></i></a></td>
-                    <td><img src="{{ MEDIA_URL }}{{ item.3 }}" alt=""></td>
+                    <td><img src="{{ item.3 }}" alt=""></td>
                     <td>{{ item.1 }}</td>
                     <td class="price">Rs {{ item.2 }}</td>
                     <td><input type="number" class="quantity" value="1" min="1"></td>

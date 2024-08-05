@@ -216,33 +216,33 @@ def submit_retailer(request):
         price = request.POST['price']
         description = request.POST['description']
         stocks = request.POST['stocks']
-        image = request.FILES['image']
+        image = request.POST['image']
         retailer_id = request.session['retailer_id']
 
-        # Define the uploads path within MEDIA_ROOT
-        upload_dir = os.path.join(settings.MEDIA_ROOT, 'uploads')
-        # Ensure the uploads directory exists
-        os.makedirs(upload_dir, exist_ok=True)
+        # # Define the uploads path within MEDIA_ROOT
+        # upload_dir = os.path.join(settings.MEDIA_ROOT, 'uploads')
+        # # Ensure the uploads directory exists
+        # os.makedirs(upload_dir, exist_ok=True)
 
-        # Save the image to the uploads directory
-        image_name = image.name
-        image_path = os.path.join(upload_dir, image_name)
-        with open(image_path, 'wb+') as destination:
-            for chunk in image.chunks():
-                destination.write(chunk)
+        # # Save the image to the uploads directory
+        # image_name = image.name
+        # image_path = os.path.join(upload_dir, image_name)
+        # with open(image_path, 'wb+') as destination:
+        #     for chunk in image.chunks():
+        #         destination.write(chunk)
 
-        # Use the relative path for the database with forward slashes
-        relative_image_path = os.path.join('uploads', image_name).replace('\\', '/')
+        # # Use the relative path for the database with forward slashes
+        # relative_image_path = os.path.join('uploads', image_name).replace('\\', '/')
         
-        # Manually add the prefix '/'
-        full_image_path = f'/media/{relative_image_path}'
+        # # Manually add the prefix '/'
+        # full_image_path = f'/media/{relative_image_path}'
 
         # Save the product details to the database
         with transaction.atomic():
             with connection.cursor() as cursor:
                 cursor.execute(
                     "INSERT INTO items (name, price, description, stocks, image_path, retailer_id) VALUES (%s, %s, %s, %s, %s, %s)",
-                    [product_name, price, description, stocks, full_image_path, retailer_id]
+                    [product_name, price, description, stocks, image, retailer_id]
                 )
 
         return redirect('retailer_dashboard')
