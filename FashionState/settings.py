@@ -86,13 +86,24 @@ WSGI_APPLICATION = 'FashionState.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  # Use the PostgreSQL backend
-        'NAME': 'Fashionstate',                # The name of your database
-        'USER': 'postgres',              # Your database user
-        'PASSWORD': 'bipul123',               # Your database password
-        'HOST': 'localhost',                       # The hostname of the PostgreSQL server
+        'NAME': 'bipul007',                # The name of your database
+        'USER': 'bipul007_user',              # Your database user
+        'PASSWORD': 'EW4DT38qRVPOUTTvGJ6m7M9sXMPRxevI',               # Your database password
+        'HOST': 'dpg-cqnpf2dsvqrc73fq4qk0-a.oregon-postgres.render.com',                       # The hostname of the PostgreSQL server
         'PORT': '5432',                            # The port your PostgreSQL server is running on
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',  # Use the PostgreSQL backend
+#         'NAME': 'Fashionstate',                # The name of your database
+#         'USER': 'postgres',              # Your database user
+#         'PASSWORD': 'bipul123',               # Your database password
+#         'HOST': 'localhost',                       # The hostname of the PostgreSQL server
+#         'PORT': '5432',                            # The port your PostgreSQL server is running on
+#     }
+# }
 
 
 # Password validation

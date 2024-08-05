@@ -44,7 +44,7 @@
             </thead>
             <tbody>
                 {% for item in cart_items %}
-                <tr data-item-id="{{ item.0 }}" data-item-quantity="1">
+                <tr data-item-id="{{ item.0 }}">
                     <td><a href="#"><i class="fa fa-times-circle" aria-hidden="true"></i></a></td>
                     <td><img src="{{ MEDIA_URL }}{{ item.3 }}" alt=""></td>
                     <td>{{ item.1 }}</td>
@@ -92,8 +92,11 @@
                     <td>Bank Account Number</td>
                     <td><input type="text" id="bank-account" name="bank_account" required></td>
                 </tr>
+                <tr>
+                <td>Please enter the price </td>
+                <td><input name="total_price" id="total-price"></td>
+            </tr>
             </table>
-            <input type="hidden" name="total_price" id="hidden-total-price">
             <button class="normal" type="submit">Place Order</button>
         </form>
     </section>
@@ -153,33 +156,10 @@
     </footer>
 
     <script>
-        function resummarize() {
-            var rows = document.querySelectorAll("tbody tr");
-            var total = 0;
-
-            rows.forEach(function(row) {
-                var price = parseFloat(row.querySelector(".price").innerText.replace('Rs ', ''));
-                var quantity = parseInt(row.querySelector(".quantity").value);
-                var subtotal = price * quantity;
-                row.querySelector(".subtotal").innerText = 'Rs ' + subtotal.toFixed(2);
-                total += subtotal;
-            });
-
-            document.getElementById("cart-subtotal").innerText = 'Rs ' + total.toFixed(2);
-            document.getElementById("cart-total").innerText = 'Rs ' + total.toFixed(2);
-            document.getElementById("checkout-total").innerText = 'Rs ' + total.toFixed(2);
-        }
-
         function showCheckout() {
             document.getElementById('checkout').style.display = 'block';
             document.getElementById('cart').style.display = 'none';
         }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            var totalAmountText = document.getElementById('checkout-total').innerText;
-            var totalAmount = totalAmountText.replace('Rs ', '').trim();
-            document.getElementById('hidden-total-price').value = totalAmount;
-        });
 
         document.querySelector('.normal').addEventListener('click', function(event) {
             event.preventDefault();

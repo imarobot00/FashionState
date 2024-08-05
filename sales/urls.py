@@ -25,6 +25,7 @@ urlpatterns=[
     path('add_to_cart/<int:item_id>/<str:name>/<float:price>/<path:image>/', views.add_to_cart, name='add_to_cart'),
     path('submit_retailer/', views.submit_retailer, name='submit_retailer'),
     path('checkout/', views.checkout, name='checkout'),
+
 ]
 
 # Serve media files during development

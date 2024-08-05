@@ -118,9 +118,9 @@ def product_detail(request, id):
     product_dict = {
         'id': product[0],
         'name': product[1],
-        'price': product[4],
-        'description': product[8],
-        'image': product[5]
+        'price': product[2],
+        'description': product[5],
+        'image': product[3]
     }
     
     items_dict = [
@@ -128,8 +128,8 @@ def product_detail(request, id):
             'id': item[0],
             'name': item[1],
             'category': item[2],
-            'price': item[4],
-            'image': item[5],
+            'price': item[2],
+            'image': item[3],
         }
         for item in items
     ]
@@ -196,7 +196,7 @@ def retailer_dashboard(request):
         }
         
         # Get retailer's items
-        cursor.execute("SELECT name, price, product_details, image_path FROM items WHERE retailer_id = %s", [retailer_id])
+        cursor.execute("SELECT name, price, description, image_path FROM items WHERE retailer_id = %s", [retailer_id])
         items = cursor.fetchall()
         
         items_list = [{
@@ -241,7 +241,7 @@ def submit_retailer(request):
         with transaction.atomic():
             with connection.cursor() as cursor:
                 cursor.execute(
-                    "INSERT INTO items (name, price, product_details, stocks, image_path, retailer_id) VALUES (%s, %s, %s, %s, %s, %s)",
+                    "INSERT INTO items (name, price, description, stocks, image_path, retailer_id) VALUES (%s, %s, %s, %s, %s, %s)",
                     [product_name, price, description, stocks, full_image_path, retailer_id]
                 )
 
@@ -304,7 +304,7 @@ def profile(request):
     if item_ids:
         with connection.cursor() as cursor:
             cursor.execute(
-                'SELECT item_id, name, price, product_details, image_path '
+                'SELECT item_id, name, price, description, image_path '
                 'FROM items '
                 'WHERE item_id IN %s',
                 [tuple(item_ids)]
