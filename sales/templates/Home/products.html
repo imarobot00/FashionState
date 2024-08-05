@@ -39,7 +39,7 @@
         <div class="pro-container">
             {% for item in page_obj %}
             <div class="pro">
-                <img src="{{ MEDIA_URL }}{{ item.3 }}" alt="{{ item.1 }}">
+                <img src="{{ item.3 }}" alt="{{ item.1 }}">
                 <div class="des">
                     <span>{{ item.4 }}</span>
                     <h5>{{ item.1 }}</h5>

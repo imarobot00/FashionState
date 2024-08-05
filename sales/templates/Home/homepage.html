@@ -71,7 +71,7 @@
         <div class="pro-container">
             {% for item in items|slice:":8" %}
             <div class="pro">
-                <img src="{{ MEDIA_URL }}{{ item.3 }}" alt="{{ item.0 }}">
+                <img src="{{ item.3 }}" alt="{{ item.0 }}">
                 <div class="des">
                     <span>{{ item.4 }}</span>
                     <h5>{{ item.1 }}</h5>
@@ -96,7 +96,7 @@
         <div class="pro-container">
             {% for item in new_items|slice:":8" %}
             <div class="pro">
-                <img src="{{ MEDIA_URL }}{{ item.3 }}" alt="{{ item.0 }}">
+                <img src="{{ item.3 }}" alt="{{ item.0 }}">
                 <div class="des">
                     <span>{{ item.4 }}</span>
                     <h5>{{ item.1 }}</h5>
