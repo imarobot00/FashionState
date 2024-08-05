@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-sb=tn_25%*a1j$+g6n!wdhpj%m*^%1nkiadupq)1(il4!8hgg!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -140,27 +140,46 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static',
+# ]
 
 
+# # settings.py
+# import os
+
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# # Static files (CSS, JavaScript, Images)
+# STATIC_URL = '/static/'
+
+# # Ensure the STATICFILES_DIRS is set correctly
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'sales', 'static'),
+# ]
+
+# # Set the STATIC_ROOT to a directory where static files will be collected
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+#new
 # settings.py
+
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
+STATIC_URL = 'https://imarobot00.github.io/staticfiles/'
 
-# Ensure the STATICFILES_DIRS is set correctly
+# Ensure the STATICFILES_DIRS is set correctly for development
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'sales', 'static'),
 ]
 
 # Set the STATIC_ROOT to a directory where static files will be collected
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#new
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
