@@ -46,5 +46,15 @@ Check out the live version of FashionState: [Visit FashionState](https://fashion
 Here are some screenshots of the application:
 
 
+### Homepage
+![Homepage Screenshot](image/homepage.png)
 
+### Login page
+![Loginpage Screenshot](image/loginpage.png)
+
+### Cart
+![cart Screenshot](image/cart.png)
+
+### Retailer Section
+![Adding_product Screenshot](image/product-add.png)
 
