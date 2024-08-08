@@ -29,7 +29,7 @@ Before you begin, ensure you have the following installed on your system:
 2. Django 3.2+
 3. PostgreSQL
 
-##Usage:
+## Usage:
 
 1. Register or log in to your account.
 2. Browse through the fashion categories and products.
