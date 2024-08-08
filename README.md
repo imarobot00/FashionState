@@ -37,4 +37,14 @@ Before you begin, ensure you have the following installed on your system:
 4. Add items to your shopping cart and proceed to checkout.
 5. View and share your fashion preferences with friends.
 
+## Live Demo
+
+Check out the live version of FashionState: [Visit FashionState](https://fashionstate.onrender.com/sales/start)
+
+## Screenshots
+
+Here are some screenshots of the application:
+
+
+
 
