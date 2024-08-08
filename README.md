@@ -1,4 +1,7 @@
 # FashionState
+
+**BY (Bipul Kumar Dahal(THA078BEI009),Binita Adhikari(THA078BEI008),Nischal Bhusal(THA078BEI024))**
+
 ## Overview
 
 FashionState is a web application that aims to revolutionize the way users explore, discover, and purchase fashion items. The platform offers personalized recommendations, trend analyses, and a seamless shopping experience tailored to individual style preferences.
@@ -57,4 +60,9 @@ Here are some screenshots of the application:
 
 ### Retailer Section
 ![Adding_product Screenshot](image/product-add.png)
+
+### Contact
+
+For questions or support, please reach out to dahalbipul999@gmail.com
+
 
