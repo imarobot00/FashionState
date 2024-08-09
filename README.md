@@ -4,11 +4,11 @@
 
 ## Overview
 
-FashionState is a web application that aims to revolutionize the way users explore, discover, and purchase fashion items. The platform offers personalized recommendations, trend analyses, and a seamless shopping experience tailored to individual style preferences.
+FashionState is a web application that aims to revolutionize the way users explore, discover, and purchase fashion items. The platform offers personalized recommendations and a seamless shopping experience tailored to individual style preferences.
 
 ## Features
 
-1. **Personalized Fashion Recommendations**: Using AI algorithms, FashionState provides users with fashion recommendations based on their style preferences and browsing history.
+1. **Personalized Fashion Recommendations**: FashionState provides users with fashion recommendations based on their style preferences and browsing history.
 2. **Trend Analysis**: Stay ahead of the curve with real-time fashion trend analyses.
 3. **User Profiles**: Create a profile to save your favorite items, track your purchases, and receive personalized updates.
 4. **Seamless Shopping Experience**: Browse and purchase fashion items directly through the platform with an integrated shopping cart and checkout system.
@@ -21,7 +21,7 @@ FashionState is a web application that aims to revolutionize the way users explo
 3. **Database Engine**:postgresql
 4. **Database GUI**: PGAdmin
 5. **Version Control**:Git,Github
-6. **Cloud Hosting**: Githubpages(frontend),render.com(backend,database)
+6. **Cloud Hosting**: Githubpages(staticfiles),render.com(frontend,backend,database)
 
 ## Installations:
 
