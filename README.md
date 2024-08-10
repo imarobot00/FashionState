@@ -48,6 +48,12 @@ Before you begin, ensure you have the following installed on your system:
 
 Check out the live version of FashionState(Might take a while like 40 seconds to load): [Visit FashionState](https://fashionstate.onrender.com/sales/start)
 
+## Contributions:
+
+1. Bipul Kumar Dahal (THA078BEI009)-Backend
+2. Binita Adhikari (THA078BEI008)- Frontend
+3. Nischal Bhusal (THA078BEI024)-Database
+
 ## Screenshots
 
 Here are some screenshots of the application:
