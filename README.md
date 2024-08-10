@@ -32,6 +32,10 @@ Before you begin, ensure you have the following installed on your system:
 2. Django 3.2+
 3. PostgreSQL
 
+**Use**
+1. Run "python manage.py runserver" to run the program on your local computer
+
+   
 ## Usage:
 
 1. Register or log in to your account.
@@ -42,7 +46,7 @@ Before you begin, ensure you have the following installed on your system:
 
 ## Live Demo
 
-Check out the live version of FashionState: [Visit FashionState](https://fashionstate.onrender.com/sales/start)
+Check out the live version of FashionState(Might take a while like 40 seconds to load): [Visit FashionState](https://fashionstate.onrender.com/sales/start)
 
 ## Screenshots
 
